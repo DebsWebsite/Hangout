@@ -84,13 +84,52 @@
         .btn.no {
             background-color: #e3242b; /* Red color for No button */
         }
+        
+        #close-btn {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #popup-content {
+            color: white; /* Set text color to white */
+        }
     </style>
     </head>
 <body>
-    <div class="footer">
-        <button class="btn">Yes</button>
-        <button class="btn no">No</button>
-    </div>  
-    </style>
+    <div class="content">
+    
+    </div>
+
+    <div class="btn-container">
+        <button class="btn" onclick="showPopup('Yes')">Yes</button>
+        <button class="btn no" onclick="showPopup('No')">No</button>
+    </div>
+
+    <div id="popup" style="display: none;">
+        <div id="popup-content" ; padding: 20px;>
+            <h2 id="popup-text"></h2>
+            <button id="close-btn" onclick="hidePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(option) {
+            var popupText = option === 'Yes' ? 'Wait fr? LESS GOOOO! Add my snap and lmk when u free.' : 'Oof, wrong answer. Try again.';
+            document.getElementById('popup-text').innerText = popupText;
+            document.getElementById('popup').style.display = 'block';
+             if (option === 'No') {
+                document.getElementById('close-btn').style.display = 'inline-block';
+            }
+        }
+
+
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('close-btn').style.display = 'none';
+        }
+        
+    </script>
+
 </body>
 </html>
